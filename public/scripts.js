@@ -58,7 +58,7 @@
         }
 
         function GetChatterInfo(){
-            $http.get('http://localhost:3000/api/chatters/'+app.username+'/list.json').success(function(response){
+            $http.get('/api/chatters/'+app.username+'/list.json').success(function(response){
                 app.numChatters = response.chatter_count;
                 app.chatters = response.chatters;
             });
