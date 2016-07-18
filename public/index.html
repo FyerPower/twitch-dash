@@ -47,25 +47,25 @@
                         <span class="streamer-info-label">
                             <i class="fa fa-fw fa-user"></i> Viewers:
                         </span>
-                        {{app.numViewers || "-"}}
+                        {{(app.numViewers | number:0) || "-"}}
                     </div>
                     <div class="stream-info-columns">
                         <span class="streamer-info-label">
                             <i class="fa fa-fw fa-eye"></i> Views:
                         </span>
-                        {{app.numViews}}
+                        {{app.numViews | number:0}}
                     </div>
                     <div class="stream-info-columns">
                         <span class="streamer-info-label">
                             <i class="fa fa-fw fa-heart"></i> Followers:
                         </span>
-                        {{app.numFollowers}}
+                        {{app.numFollowers | number:0}}
                     </div>
                     <div class="stream-info-columns">
                         <span class="streamer-info-label">
                             <i class="fa fa-fw fa-comments"></i> Chatters:
                         </span>
-                        {{app.numChatters || "-"}}
+                        {{(app.numChatters | number:0) || "-"}}
                     </div>
                 </div>
             </div>
