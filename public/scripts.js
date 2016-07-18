@@ -58,8 +58,8 @@
         }
 
         function GetChatterInfo(){
-            var baseAPI = $location.protocol() + "://www." + $location.host() + ":" + $location.port();
-            $http.get(baseAPI + '/api/twitch/'+app.username+'/chatters.json').success(function(response){
+            // var baseAPI = $location.protocol() + "://" + $location.host() + ":" + $location.port();
+            $http.get('/api/twitch/'+app.username+'/chatters.json').success(function(response){
                 app.numChatters = response.chatter_count;
                 app.chatters = response.chatters;
             });
