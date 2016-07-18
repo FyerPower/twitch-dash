@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::ChattersControllerTest < ActionController::TestCase
+class Twitch::ChattersControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -6,8 +6,8 @@
         .run(function(){})
         .controller('ApplicationController', ApplicationController);
 
-    ApplicationController.$inject = ['$http', '$interval'];
-    function ApplicationController($http, $interval) {
+    ApplicationController.$inject = ['$http', '$interval', '$location'];
+    function ApplicationController($http, $interval, $location) {
         var app = this;
 
         var BASE_INFO_REFRESH = 15000; // update once every 15 seconds
@@ -58,7 +58,8 @@
         }
 
         function GetChatterInfo(){
-            $http.get('/api/chatters/'+app.username+'/list.json').success(function(response){
+            var baseAPI = $location.protocol() + "://api." + $location.host() + ":" + $location.port();
+            $http.get(baseAPI + '/twitch/'+app.username+'/chatters.json').success(function(response){
                 app.numChatters = response.chatter_count;
                 app.chatters = response.chatters;
             });
