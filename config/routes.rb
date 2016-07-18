@@ -4,4 +4,6 @@ Rails.application.routes.draw do
             get ':username/chatters' => 'chatters#list'
         end
     end
+
+    get '*path' => redirect('/')
 end

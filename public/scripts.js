@@ -4,16 +4,27 @@
     angular
         .module('application', [])
         .run(function(){})
+        .config(ApplicationConfig)
         .controller('ApplicationController', ApplicationController);
 
-    ApplicationController.$inject = ['$http', '$interval', '$location'];
-    function ApplicationController($http, $interval, $location) {
+    ApplicationConfig.$inject = ['$locationProvider', '$sceDelegateProvider'];
+    function ApplicationConfig($locationProvider, $sceDelegateProvider){
+        $locationProvider.html5Mode(true);
+        $sceDelegateProvider.resourceUrlWhitelist([
+            'self',
+            'https://www.twitch.tv/**'
+        ]);
+    }
+
+    ApplicationController.$inject = ['$http', '$interval', '$location', '$sce'];
+    function ApplicationController($http, $interval, $location, $sce) {
         var app = this;
 
-        var BASE_INFO_REFRESH = 15000; // update once every 15 seconds
+        app.channelName = $location.search().user || 'fyerpower';
+        var BASE_INFO_REFRESH = 15000;    // update once every 15 seconds
         var CHATTER_INFO_REFRESH = 10000; // update once every 10 seconds
 
-        app.username = 'FyerPower';
+        app.displayName = null;
         app.online = false;
         app.game = 'Test Game';
         app.title = 'Test Streaming Title';
@@ -29,6 +40,7 @@
             global_mods: [],
             viewers: []
         };
+        app.twitchChatUrl = $sce.trustAsResourceUrl("https://www.twitch.tv/"+app.channelName+"/chat");
 
         app.baseInfoUpdated = null;
         app.chatterInfoUpdated = null;
@@ -40,8 +52,9 @@
         $interval(GetChatterInfo, CHATTER_INFO_REFRESH);
 
         function GetBaseInfo(){
-            $http.get('https://api.twitch.tv/kraken/channels/'+app.username).success(function(response){
+            $http.get('https://api.twitch.tv/kraken/channels/'+app.channelName).success(function(response){
                 // console.log("Base Info Data: ", response);
+                app.displayName  = response.display_name;
                 app.game      = response.game;
                 app.title     = response.status;
                 app.logo      = response.logo;
@@ -49,7 +62,7 @@
                 app.numFollowers = response.followers;
                 app.baseInfoUpdated = new Date();
             });
-            $http.get('https://api.twitch.tv/kraken/streams?channel='+app.username).success(function(response){
+            $http.get('https://api.twitch.tv/kraken/streams?channel='+app.channelName).success(function(response){
                 app.online = (response._total === 1);
                 if(app.online){
                     app.numViewers = response.streams[0].viewers;
@@ -58,8 +71,7 @@
         }
 
         function GetChatterInfo(){
-            // var baseAPI = $location.protocol() + "://" + $location.host() + ":" + $location.port();
-            $http.get('/api/twitch/'+app.username+'/chatters.json').success(function(response){
+            $http.get('/api/twitch/'+app.channelName+'/chatters.json').success(function(response){
                 app.numChatters = response.chatter_count;
                 app.chatters = response.chatters;
             });

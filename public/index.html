@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>TwitchDash: Custom Twitch Dashboard</title>
+        <base href="/">
 
         <!-- Font Awesome -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +24,7 @@
                 <div class="streamer-info">
                     <span>
                         <i class="fa fa-fw fa-twitch"></i>
-                        {{app.username}}
+                        {{app.displayName}}
                     </span>
                     <span class="status-block status-online" ng-show="app.online"><i class="fa fa-circle"></i>Online</span>
                     <span class="status-block status-offline" ng-hide="app.online"><i class="fa fa-circle"></i>Offline</span>
