@@ -5,6 +5,7 @@
         .module('application', ['ui.router'])
         .config(ApplicationConfig)
         .run(function(){})
+        .controller('HomeController', HomeController)
         .controller('DashboardController', DashboardController);
 
     ApplicationConfig.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider', '$sceDelegateProvider'];
