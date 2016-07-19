@@ -18,7 +18,6 @@ body {
     }
 }
 
-
 #dashboard {
     position: absolute;
     right: 0;
@@ -86,21 +85,4 @@ body {
         .status-block.status-online .fa { color: green; }
         .status-block.status-offline .fa { color: red; }
     }
-}
-
-
-
-
-a { color: #6a6ad9; }
-
-
-
-
-
-.clearfix:before, .clearfix:before {
-    content: " ";
-    display: table;
-}
-.clearfix:before:after {
-    clear: both;
 }
