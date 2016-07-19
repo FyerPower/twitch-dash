@@ -1,15 +1,18 @@
-<div class="">
-    <center>
-        <br/>
-        <br/>
-        <h1>Welcome to TwitchBoards</h1>
-        <h3>Sample Dashboards:</h3>
-        <a ui-sref="dashboard({username: 'fyerpower'})">FyerPower</a>
-        <br/>
-        <a ui-sref="dashboard({username: 'sneakykitty2001'})">SneakyKitty2001</a>
-        <br/>
-        <a ui-sref="dashboard({username: 'reignsolo'})">ReignSolo</a>
-        <br/>
+<div id="home">
+    <div class="main-cover" ng-style="{'height': app.windowHeight}">
+        <div class="clearfix text-center">
+            <h1>Welcome to TwitchBoards</h1>
+            <h3>Sample Dashboards:</h3>
 
-    </center>
+            <a class="btn btn-default" style="width: 150px; margin: 5px;" ui-sref="dashboard({username: 'fyerpower'})">
+                <i class="fa fa-twitch"></i>&nbsp;&nbsp;FyerPower
+            </a><br/>
+            <a class="btn btn-default" style="width: 150px; margin: 5px;" ui-sref="dashboard({username: 'sneakykitty2001'})">
+                <i class="fa fa-twitch"></i>&nbsp;&nbsp;SneakyKitty2001
+            </a><br/>
+            <a class="btn btn-default" style="width: 150px; margin: 5px;" ui-sref="dashboard({username: 'reignsolo'})">
+                <i class="fa fa-twitch"></i>&nbsp;&nbsp;ReignSolo
+            </a>
+        </div>
+    </div>
 </div>

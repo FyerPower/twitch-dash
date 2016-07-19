@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="application" ng-strict-di='true'>
+<html ng-app="twitchboard" ng-controller="AppController as app" ng-strict-di='true'>
     <head>
         <meta charset="utf-8">
         <title>TwitchDash: Custom Twitch Dashboard</title>
         <base href="/">
 
-        <!-- Font Awesome -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- Stylesheet -->
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
-        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" /> -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/application.css" />
 
         <!-- Javascript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
@@ -22,6 +22,6 @@
         <script type="text/javascript" src="scripts.js"></script>
     </head>
     <body>
-        <div id="site-container" ui-view></div>
+        <div ui-view></div>
     </body>
 </html>

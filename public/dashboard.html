@@ -1,55 +1,57 @@
-<div id="stream-info-container" class="clearfix">
-    <div class="streamer-info">
-        <span>
-            <i class="fa fa-fw fa-twitch"></i>
-            {{vm.displayName}}
-        </span>
-        <span class="status-block status-online" ng-show="vm.online"><i class="fa fa-circle"></i>Online</span>
-        <span class="status-block status-offline" ng-hide="vm.online"><i class="fa fa-circle"></i>Offline</span>
-    </div>
-    <div class="streamer-info">
-        <span class="streamer-info-label">
-            <i class="fa fa-fw fa-gamepad"></i>
-            Game:
-        </span>
-        {{vm.game}}
-    </div>
-    <div class="streamer-info">
-        <span class="streamer-info-label">
-            <i class="fa fa-fw fa-tv"></i>
-            Title:
-        </span>
-        {{vm.title}}
-    </div>
-    <div class="streamer-info clearfix">
-        <div class="stream-info-columns">
-            <span class="streamer-info-label">
-                <i class="fa fa-fw fa-user"></i> Viewers:
+<div id="dashboard">
+    <div id="stream-info-container" class="clearfix">
+        <div class="streamer-info">
+            <span>
+                <i class="fa fa-fw fa-twitch"></i>
+                {{vm.displayName}}
             </span>
-            {{(vm.numViewers | number:0) || "-"}}
+            <span class="status-block status-online" ng-show="vm.online"><i class="fa fa-circle"></i>Online</span>
+            <span class="status-block status-offline" ng-hide="vm.online"><i class="fa fa-circle"></i>Offline</span>
         </div>
-        <div class="stream-info-columns">
+        <div class="streamer-info">
             <span class="streamer-info-label">
-                <i class="fa fa-fw fa-eye"></i> Views:
+                <i class="fa fa-fw fa-gamepad"></i>
+                Game:
             </span>
-            {{vm.numViews | number:0}}
+            {{vm.game}}
         </div>
-        <div class="stream-info-columns">
+        <div class="streamer-info">
             <span class="streamer-info-label">
-                <i class="fa fa-fw fa-heart"></i> Followers:
+                <i class="fa fa-fw fa-tv"></i>
+                Title:
             </span>
-            {{vm.numFollowers | number:0}}
+            {{vm.title}}
         </div>
-        <div class="stream-info-columns">
-            <span class="streamer-info-label">
-                <i class="fa fa-fw fa-comments"></i> Chatters:
-            </span>
-            {{(vm.numChatters | number:0) || "-"}}
+        <div class="streamer-info clearfix">
+            <div class="stream-info-columns">
+                <span class="streamer-info-label">
+                    <i class="fa fa-fw fa-user"></i> Viewers:
+                </span>
+                {{(vm.numViewers | number:0) || "-"}}
+            </div>
+            <div class="stream-info-columns">
+                <span class="streamer-info-label">
+                    <i class="fa fa-fw fa-eye"></i> Views:
+                </span>
+                {{vm.numViews | number:0}}
+            </div>
+            <div class="stream-info-columns">
+                <span class="streamer-info-label">
+                    <i class="fa fa-fw fa-heart"></i> Followers:
+                </span>
+                {{vm.numFollowers | number:0}}
+            </div>
+            <div class="stream-info-columns">
+                <span class="streamer-info-label">
+                    <i class="fa fa-fw fa-comments"></i> Chatters:
+                </span>
+                {{(vm.numChatters | number:0) || "-"}}
+            </div>
         </div>
     </div>
-</div>
-<div id="chat-container">
-    <div>
-        <iframe frameborder="0" scrolling="no" id="chat_embed" ng-src="{{vm.twitchChatUrl}}"></iframe>
+    <div id="chat-container">
+        <div>
+            <iframe frameborder="0" scrolling="no" id="chat_embed" ng-src="{{vm.twitchChatUrl}}"></iframe>
+        </div>
     </div>
 </div>

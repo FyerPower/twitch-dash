@@ -2,9 +2,10 @@
     'use strict';
 
     angular
-        .module('application', ['ui.router'])
+        .module('twitchboard', ['ui.router'])
         .config(ApplicationConfig)
         .run(function(){})
+        .controller('AppController', AppController)
         .controller('HomeController', HomeController)
         .controller('DashboardController', DashboardController);
 
@@ -39,6 +40,19 @@
             });
 
         $urlRouterProvider.otherwise("/");
+    }
+
+    AppController.$inject = ['$scope', '$window'];
+    function AppController($scope, $window) {
+        var app = this;
+        
+        app.windowHeight = $window.innerHeight;
+        angular.element($window).bind('resize', function(){
+            app.windowHeight = $window.innerHeight;
+            $scope.$digest();
+        });
+
+        return app;
     }
 
     HomeController.$inject = [];
