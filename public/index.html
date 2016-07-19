@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="application" ng-controller="ApplicationController as app">
+<html ng-app="application" ng-strict-di='true'>
     <head>
         <meta charset="utf-8">
         <title>TwitchDash: Custom Twitch Dashboard</title>
@@ -16,65 +16,12 @@
         <!-- Javascript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-sanitize.min.js"></script>
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script> -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
         <script type="text/javascript" src="scripts.js"></script>
     </head>
     <body>
-        <div id="site-container">
-            <div id="stream-info-container" class="clearfix">
-                <div class="streamer-info">
-                    <span>
-                        <i class="fa fa-fw fa-twitch"></i>
-                        {{app.displayName}}
-                    </span>
-                    <span class="status-block status-online" ng-show="app.online"><i class="fa fa-circle"></i>Online</span>
-                    <span class="status-block status-offline" ng-hide="app.online"><i class="fa fa-circle"></i>Offline</span>
-                </div>
-                <div class="streamer-info">
-                    <span class="streamer-info-label">
-                        <i class="fa fa-fw fa-gamepad"></i>
-                        Game:
-                    </span>
-                    {{app.game}}
-                </div>
-                <div class="streamer-info">
-                    <span class="streamer-info-label">
-                        <i class="fa fa-fw fa-tv"></i>
-                        Title:
-                    </span>
-                    {{app.title}}
-                </div>
-                <div class="streamer-info clearfix">
-                    <div class="stream-info-columns">
-                        <span class="streamer-info-label">
-                            <i class="fa fa-fw fa-user"></i> Viewers:
-                        </span>
-                        {{(app.numViewers | number:0) || "-"}}
-                    </div>
-                    <div class="stream-info-columns">
-                        <span class="streamer-info-label">
-                            <i class="fa fa-fw fa-eye"></i> Views:
-                        </span>
-                        {{app.numViews | number:0}}
-                    </div>
-                    <div class="stream-info-columns">
-                        <span class="streamer-info-label">
-                            <i class="fa fa-fw fa-heart"></i> Followers:
-                        </span>
-                        {{app.numFollowers | number:0}}
-                    </div>
-                    <div class="stream-info-columns">
-                        <span class="streamer-info-label">
-                            <i class="fa fa-fw fa-comments"></i> Chatters:
-                        </span>
-                        {{(app.numChatters | number:0) || "-"}}
-                    </div>
-                </div>
-            </div>
-            <div id="chat-container">
-                <div>
-                    <iframe frameborder="0" scrolling="no" id="chat_embed" src="https://www.twitch.tv/fyerpower/chat"></iframe>
-                </div>
-            </div>
-        </div>
+        <div id="site-container" ui-view></div>
     </body>
 </html>
