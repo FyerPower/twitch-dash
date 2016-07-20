@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('twitchboard', ['ui.router'])
+        .module('twitchboard', ['ui.router', 'templates'])
         .config(ApplicationConfig)
         .run(function(){})
         .controller('AppController', AppController)
@@ -45,7 +45,7 @@
     AppController.$inject = ['$scope', '$window'];
     function AppController($scope, $window) {
         var app = this;
-        
+
         app.windowHeight = $window.innerHeight;
         angular.element($window).bind('resize', function(){
             app.windowHeight = $window.innerHeight;

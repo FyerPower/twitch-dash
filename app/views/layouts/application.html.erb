@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TwitchDash</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html ng-app="twitchboard" ng-controller="AppController as app" ng-strict-di='true'>
+    <head>
+        <meta charset="utf-8">
+        <title>TwitchDash: Custom Twitch Dashboard</title>
+        <base href="/">
+        <%= csrf_meta_tags %>
 
-<%= yield %>
+        <!-- Stylesheet -->
+        <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <%= stylesheet_link_tag    'application', media: 'all' %>
 
-</body>
+        <!-- Javascript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+        <%= javascript_include_tag 'application' %>
+    </head>
+    <body>
+        <div ui-view></div>
+    </body>
 </html>

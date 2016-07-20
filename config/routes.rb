@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     # match "api/*path" => proc { [404, {}, ['Invalid API endpoint']] }
 
     get "/*path" => redirect("/?goto=%{path}")
+    root "angular#index"
 end

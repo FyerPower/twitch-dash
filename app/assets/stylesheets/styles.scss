@@ -13,7 +13,7 @@ body {
 #home {
     .main-cover {
         background: center no-repeat #666;
-        background-image: url('/assets/background.jpg');
+        background-image: image-url('background.jpg');
         background-size: cover;
     }
 }
