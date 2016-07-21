@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
+gem 'pg'
 gem 'curb'
 gem 'rack-cors'
+
+gem 'devise'
+gem 'omniauth-twitchtv', github: 'masterkain/omniauth-twitchtv'
+
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'

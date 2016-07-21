@@ -2,15 +2,21 @@
     <div class="main-cover" ng-style="{'height': app.windowHeight}">
         <div class="clearfix text-center">
             <h1>Welcome to TwitchBoards</h1>
+            <h3>Connect with Twitch:</h3>
+
+            <a class="btn btn-default" style="width: 160px; margin: 5px;" ng-click="vm.connect()">
+                <i class="fa fa-twitch"></i>&nbsp;&nbsp;Connect to Twitch
+            </a>
+
             <h3>Sample Dashboards:</h3>
 
-            <a class="btn btn-default" style="width: 150px; margin: 5px;" ui-sref="dashboard({username: 'fyerpower'})">
+            <a class="btn btn-default" style="margin: 5px;" ui-sref="dashboard({username: 'fyerpower'})">
                 <i class="fa fa-twitch"></i>&nbsp;&nbsp;FyerPower
             </a><br/>
-            <a class="btn btn-default" style="width: 150px; margin: 5px;" ui-sref="dashboard({username: 'sneakykitty2001'})">
+            <a class="btn btn-default" style="margin: 5px;" ui-sref="dashboard({username: 'sneakykitty2001'})">
                 <i class="fa fa-twitch"></i>&nbsp;&nbsp;SneakyKitty2001
             </a><br/>
-            <a class="btn btn-default" style="width: 150px; margin: 5px;" ui-sref="dashboard({username: 'reignsolo'})">
+            <a class="btn btn-default" style="margin: 5px;" ui-sref="dashboard({username: 'reignsolo'})">
                 <i class="fa fa-twitch"></i>&nbsp;&nbsp;ReignSolo
             </a>
         </div>

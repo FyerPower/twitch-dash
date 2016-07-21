@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: twitchboard_dev
+  pool: 5
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: twitchboard_test
+  pool: 5
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: twitchboard_prod
+  pool: 5
+  username: twitchboard
+  password:
